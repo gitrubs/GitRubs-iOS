@@ -11,7 +11,6 @@
 		620526F424E8046D009EAA75 /* RepoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620526F324E8046D009EAA75 /* RepoListVC.swift */; };
 		620526F924E8046F009EAA75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620526F824E8046F009EAA75 /* Assets.xcassets */; };
 		620526FC24E8046F009EAA75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620526FA24E8046F009EAA75 /* LaunchScreen.storyboard */; };
-		6205270724E80470009EAA75 /* GitRubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205270624E80470009EAA75 /* GitRubsTests.swift */; };
 		6205271224E8176D009EAA75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205271124E8176D009EAA75 /* SceneDelegate.swift */; };
 		625422DD24E86AB100D7B7B3 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625422DC24E86AB100D7B7B3 /* LoadingCell.swift */; };
 		626EDFAA24E81A620051F61A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFA924E81A620051F61A /* Repo.swift */; };
@@ -23,6 +22,10 @@
 		626EDFB724E8231E0051F61A /* RepoListConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFB624E8231E0051F61A /* RepoListConfig.swift */; };
 		626EDFBB24E83DC60051F61A /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFBA24E83DC60051F61A /* RepoCell.swift */; };
 		626EDFC124E845AF0051F61A /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFC024E845AF0051F61A /* ViewHelper.swift */; };
+		62F6748724E879A500B5BB78 /* RepoListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6748624E879A500B5BB78 /* RepoListInteractorTests.swift */; };
+		62F6748A24E87A2800B5BB78 /* RepoListInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6748924E87A2800B5BB78 /* RepoListInteractorOutputSpy.swift */; };
+		62F6748C24E87AD900B5BB78 /* Spy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6748B24E87AD900B5BB78 /* Spy.swift */; };
+		62F6748E24E87D5B00B5BB78 /* MockRepoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6748D24E87D5B00B5BB78 /* MockRepoWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,6 @@
 		620526FB24E8046F009EAA75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		620526FD24E8046F009EAA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6205270224E80470009EAA75 /* GitRubsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitRubsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6205270624E80470009EAA75 /* GitRubsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRubsTests.swift; sourceTree = "<group>"; };
 		6205270824E80470009EAA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6205271124E8176D009EAA75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		625422DC24E86AB100D7B7B3 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
@@ -56,6 +58,10 @@
 		626EDFB624E8231E0051F61A /* RepoListConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListConfig.swift; sourceTree = "<group>"; };
 		626EDFBA24E83DC60051F61A /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		626EDFC024E845AF0051F61A /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
+		62F6748624E879A500B5BB78 /* RepoListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListInteractorTests.swift; sourceTree = "<group>"; };
+		62F6748924E87A2800B5BB78 /* RepoListInteractorOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListInteractorOutputSpy.swift; sourceTree = "<group>"; };
+		62F6748B24E87AD900B5BB78 /* Spy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spy.swift; sourceTree = "<group>"; };
+		62F6748D24E87D5B00B5BB78 /* MockRepoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +119,10 @@
 		6205270524E80470009EAA75 /* GitRubsTests */ = {
 			isa = PBXGroup;
 			children = (
-				6205270624E80470009EAA75 /* GitRubsTests.swift */,
+				62F6748824E879F900B5BB78 /* Mock */,
+				62F6748424E8794200B5BB78 /* Scenes */,
 				6205270824E80470009EAA75 /* Info.plist */,
+				62F6748B24E87AD900B5BB78 /* Spy.swift */,
 			);
 			path = GitRubsTests;
 			sourceTree = "<group>";
@@ -164,6 +172,31 @@
 				625422DC24E86AB100D7B7B3 /* LoadingCell.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		62F6748424E8794200B5BB78 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				62F6748524E8797900B5BB78 /* RepoList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		62F6748524E8797900B5BB78 /* RepoList */ = {
+			isa = PBXGroup;
+			children = (
+				62F6748624E879A500B5BB78 /* RepoListInteractorTests.swift */,
+			);
+			path = RepoList;
+			sourceTree = "<group>";
+		};
+		62F6748824E879F900B5BB78 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				62F6748924E87A2800B5BB78 /* RepoListInteractorOutputSpy.swift */,
+				62F6748D24E87D5B00B5BB78 /* MockRepoWorker.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +252,7 @@
 					};
 					6205270124E80470009EAA75 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 						TestTargetID = 620526EB24E8046D009EAA75;
 					};
 				};
@@ -286,7 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6205270724E80470009EAA75 /* GitRubsTests.swift in Sources */,
+				62F6748A24E87A2800B5BB78 /* RepoListInteractorOutputSpy.swift in Sources */,
+				62F6748E24E87D5B00B5BB78 /* MockRepoWorker.swift in Sources */,
+				62F6748724E879A500B5BB78 /* RepoListInteractorTests.swift in Sources */,
+				62F6748C24E87AD900B5BB78 /* Spy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +506,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YCYVAN8PU;
 				INFOPLIST_FILE = GitRubsTests/Info.plist;
@@ -480,6 +518,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gondekr.GitRubsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitRubs.app/GitRubs";
@@ -491,6 +530,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YCYVAN8PU;
 				INFOPLIST_FILE = GitRubsTests/Info.plist;
