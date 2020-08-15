@@ -16,8 +16,12 @@ extension RepoListVC: RepoListPresenterOutput {
 }
 
 extension RepoListInteractor: RepoListVCOutput {
-    func askForRepos(page: Int) {
-        fetchRepos(page: page)
+    func askForRepos() {
+        fetchRepos()
+    }
+
+    func askForNextPage() {
+        fetchNextPage()
     }
 }
 

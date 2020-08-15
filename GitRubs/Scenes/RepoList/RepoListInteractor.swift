@@ -1,7 +1,8 @@
 import UIKit
 
 protocol RepoListInteractorInput {
-    func fetchRepos(page: Int)
+    func fetchRepos()
+    func fetchNextPage()
 }
 
 protocol RepoListInteractorOutput {
@@ -13,8 +14,19 @@ class RepoListInteractor: RepoListInteractorInput {
     var output: RepoListInteractorOutput!
     var worker: RepoWorkerType!
 
+    var currentPage = 0
+
     // MARK: Business logic
-    func fetchRepos(page: Int) {
+    func fetchRepos() {
+        getRepos(page: 1)
+    }
+
+    func fetchNextPage() {
+        getRepos(page: currentPage + 1)
+    }
+
+    func getRepos(page: Int) {
+        currentPage = page
         worker.getRepos(page: page, onSuccess: { (repos) in
             self.output.presentRepos(repos, page: page)
         }, onError: { (error) in

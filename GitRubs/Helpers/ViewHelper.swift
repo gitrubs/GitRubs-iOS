@@ -5,6 +5,11 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
+    func setSize(height: CGFloat, width: CGFloat) {
+        setWidth(width)
+        setHeight(height)
+    }
+
     func setHeight(_ height: CGFloat) {
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
@@ -15,6 +20,10 @@ extension UIView {
 
     func setEqualWidth(to view: UIView) {
         widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    }
+
+    func setCenterX(to view: NSLayoutXAxisAnchor, constant: CGFloat = 0) {
+        centerXAnchor.constraint(equalTo: view, constant: constant).isActive = true
     }
 
     func setBottom(to view: NSLayoutYAxisAnchor, constant: CGFloat = 0) {

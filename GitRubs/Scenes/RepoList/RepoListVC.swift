@@ -6,12 +6,14 @@ protocol RepoListVCInput {
 }
 
 protocol RepoListVCOutput {
-    func askForRepos(page: Int)
+    func askForRepos()
+    func askForNextPage()
 }
 
 class RepoListVC: UIViewController {
     var output: RepoListVCOutput!
     var repos: [Repo] = []
+    var isLoading: Bool = false
 
     let tableView = UITableView()
     let refresh = UIRefreshControl()
@@ -20,7 +22,6 @@ class RepoListVC: UIViewController {
         super.viewDidLoad()
         configure()
         setupUI()
-        startLoading()
         refreshList()
     }
 
@@ -44,9 +45,11 @@ class RepoListVC: UIViewController {
     func setupTableView() {
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.identifier)
+        tableView.register(LoadingCell.self, forCellReuseIdentifier: LoadingCell.identifier)
 
         // Pull to Refresh
         refresh.tintColor = .black
@@ -63,21 +66,24 @@ class RepoListVC: UIViewController {
     }
 
     @objc func refreshList() {
-        refresh.attributedTitle = NSAttributedString(string: "Loading...")
-        output.askForRepos(page: 1)
+        refresh.attributedTitle = NSAttributedString(string: "Carregando...")
+        isLoading = true
+        output.askForRepos()
     }
 
-    func startLoading() {
-        refresh.beginRefreshing()
+    func loadNextPage() {
+        isLoading = true
+        output.askForNextPage()
     }
 
     func stopLoading() {
         refresh.endRefreshing()
-        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresh.attributedTitle = NSAttributedString(string: "Puxe para atualizar")
     }
 
     func updateList() {
         tableView.reloadData()
+        isLoading = false
         stopLoading()
     }
 }
@@ -94,12 +100,33 @@ extension RepoListVC: RepoListVCInput {
     }
 }
 
+extension RepoListVC: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if (offsetY > contentHeight - scrollView.frame.height - 20) && !isLoading {
+            loadNextPage()
+        }
+    }
+}
+
 extension RepoListVC: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repos.count
+        return section == 0 ? repos.count : 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingCell.identifier, for: indexPath) as! LoadingCell
+            cell.spinner.startAnimating()
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: RepoCell.identifier, for: indexPath) as! RepoCell
         let repo = repos[indexPath.row]
 

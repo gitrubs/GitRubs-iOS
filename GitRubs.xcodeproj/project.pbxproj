@@ -13,6 +13,7 @@
 		620526FC24E8046F009EAA75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620526FA24E8046F009EAA75 /* LaunchScreen.storyboard */; };
 		6205270724E80470009EAA75 /* GitRubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205270624E80470009EAA75 /* GitRubsTests.swift */; };
 		6205271224E8176D009EAA75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205271124E8176D009EAA75 /* SceneDelegate.swift */; };
+		625422DD24E86AB100D7B7B3 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625422DC24E86AB100D7B7B3 /* LoadingCell.swift */; };
 		626EDFAA24E81A620051F61A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFA924E81A620051F61A /* Repo.swift */; };
 		626EDFAC24E81AA40051F61A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFAB24E81AA40051F61A /* Person.swift */; };
 		626EDFAF24E81E7A0051F61A /* RepoWorkerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFAE24E81E7A0051F61A /* RepoWorkerType.swift */; };
@@ -45,6 +46,7 @@
 		6205270624E80470009EAA75 /* GitRubsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRubsTests.swift; sourceTree = "<group>"; };
 		6205270824E80470009EAA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6205271124E8176D009EAA75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		625422DC24E86AB100D7B7B3 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		626EDFA924E81A620051F61A /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		626EDFAB24E81AA40051F61A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		626EDFAE24E81E7A0051F61A /* RepoWorkerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWorkerType.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				626EDFC024E845AF0051F61A /* ViewHelper.swift */,
+				625422DC24E86AB100D7B7B3 /* LoadingCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				620526F424E8046D009EAA75 /* RepoListVC.swift in Sources */,
 				626EDFB124E81F050051F61A /* GithubRepoWorker.swift in Sources */,
 				626EDFB524E821E90051F61A /* RepoListPresenter.swift in Sources */,
+				625422DD24E86AB100D7B7B3 /* LoadingCell.swift in Sources */,
 				620526F024E8046D009EAA75 /* AppDelegate.swift in Sources */,
 				6205271224E8176D009EAA75 /* SceneDelegate.swift in Sources */,
 				626EDFBB24E83DC60051F61A /* RepoCell.swift in Sources */,
