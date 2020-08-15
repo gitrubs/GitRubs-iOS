@@ -44,13 +44,13 @@ class RepoListVC: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.allowsSelection = false
-        tableView.separatorStyle = .none
+        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.identifier)
 
         // Constraints
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.setTop(to: view.topAnchor)
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.setBottom(to: view.bottomAnchor)
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
 
@@ -77,11 +77,10 @@ extension RepoListVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "repoCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepoCell.identifier, for: indexPath) as! RepoCell
         let repo = repos[indexPath.row]
 
-        cell.textLabel?.text = repo.name
-        cell.detailTextLabel?.text = repo.author.name
+        cell.configure(repo: repo)
 
         return cell
     }

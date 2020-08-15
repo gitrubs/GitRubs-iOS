@@ -20,6 +20,8 @@
 		626EDFB324E81FDA0051F61A /* RepoListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFB224E81FDA0051F61A /* RepoListInteractor.swift */; };
 		626EDFB524E821E90051F61A /* RepoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFB424E821E90051F61A /* RepoListPresenter.swift */; };
 		626EDFB724E8231E0051F61A /* RepoListConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFB624E8231E0051F61A /* RepoListConfig.swift */; };
+		626EDFBB24E83DC60051F61A /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFBA24E83DC60051F61A /* RepoCell.swift */; };
+		626EDFC124E845AF0051F61A /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EDFC024E845AF0051F61A /* ViewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		626EDFB224E81FDA0051F61A /* RepoListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListInteractor.swift; sourceTree = "<group>"; };
 		626EDFB424E821E90051F61A /* RepoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListPresenter.swift; sourceTree = "<group>"; };
 		626EDFB624E8231E0051F61A /* RepoListConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListConfig.swift; sourceTree = "<group>"; };
+		626EDFBA24E83DC60051F61A /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		626EDFC024E845AF0051F61A /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		620526EE24E8046D009EAA75 /* GitRubs */ = {
 			isa = PBXGroup;
 			children = (
+				626EDFBF24E845A30051F61A /* Helpers */,
 				626EDFAD24E81E460051F61A /* Workers */,
 				626EDFA824E81A510051F61A /* Model */,
 				6205271324E81869009EAA75 /* Scenes */,
@@ -127,6 +132,7 @@
 				626EDFB224E81FDA0051F61A /* RepoListInteractor.swift */,
 				626EDFB424E821E90051F61A /* RepoListPresenter.swift */,
 				626EDFB624E8231E0051F61A /* RepoListConfig.swift */,
+				626EDFBA24E83DC60051F61A /* RepoCell.swift */,
 			);
 			path = RepoList;
 			sourceTree = "<group>";
@@ -147,6 +153,14 @@
 				626EDFB024E81F050051F61A /* GithubRepoWorker.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		626EDFBF24E845A30051F61A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				626EDFC024E845AF0051F61A /* ViewHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +272,8 @@
 				626EDFB524E821E90051F61A /* RepoListPresenter.swift in Sources */,
 				620526F024E8046D009EAA75 /* AppDelegate.swift in Sources */,
 				6205271224E8176D009EAA75 /* SceneDelegate.swift in Sources */,
+				626EDFBB24E83DC60051F61A /* RepoCell.swift in Sources */,
+				626EDFC124E845AF0051F61A /* ViewHelper.swift in Sources */,
 				626EDFAA24E81A620051F61A /* Repo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

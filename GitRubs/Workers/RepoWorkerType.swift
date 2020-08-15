@@ -1,3 +1,3 @@
 protocol RepoWorkerType {
-    func getRepos(page: Int, onSuccess: ([Repo]) -> Void, onError: (String) -> Void)
+    func getRepos(page: Int, onSuccess: @escaping ([Repo]) -> Void, onError: @escaping (String) -> Void)
 }

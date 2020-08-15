@@ -16,9 +16,9 @@ class RepoListInteractor: RepoListInteractorInput {
     // MARK: Business logic
     func fetchRepos(page: Int) {
         worker.getRepos(page: page, onSuccess: { (repos) in
-            output.presentRepos(repos, page: page)
+            self.output.presentRepos(repos, page: page)
         }, onError: { (error) in
-            output.presentError(error)
+            self.output.presentError(error)
         })
     }
 }
