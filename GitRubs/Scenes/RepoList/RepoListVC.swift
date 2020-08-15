@@ -14,12 +14,14 @@ class RepoListVC: UIViewController {
     var repos: [Repo] = []
 
     let tableView = UITableView()
+    let refresh = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         setupUI()
-        output.askForRepos(page: 1)
+        startLoading()
+        refreshList()
     }
 
     func setupUI() {
@@ -29,13 +31,12 @@ class RepoListVC: UIViewController {
 
     func setupNavigationBar() {
         navigationItem.title = "GitRubs"
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .never
 
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
@@ -44,7 +45,14 @@ class RepoListVC: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.identifier)
+
+        // Pull to Refresh
+        refresh.tintColor = .black
+        refresh.attributedTitle = NSAttributedString(string: "Loading...")
+        refresh.addTarget(self, action: #selector(refreshList), for: .valueChanged)
+        tableView.refreshControl = refresh
 
         // Constraints
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +62,23 @@ class RepoListVC: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
 
+    @objc func refreshList() {
+        refresh.attributedTitle = NSAttributedString(string: "Loading...")
+        output.askForRepos(page: 1)
+    }
+
+    func startLoading() {
+        refresh.beginRefreshing()
+    }
+
+    func stopLoading() {
+        refresh.endRefreshing()
+        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    }
+
     func updateList() {
         tableView.reloadData()
+        stopLoading()
     }
 }
 
