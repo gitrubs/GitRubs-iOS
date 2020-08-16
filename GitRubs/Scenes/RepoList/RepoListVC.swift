@@ -15,8 +15,21 @@ class RepoListVC: UIViewController {
     var repos: [Repo] = []
     var isLoading: Bool = false
 
-    let tableView = UITableView()
-    let refresh = UIRefreshControl()
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.allowsSelection = false
+        table.separatorStyle = .none
+        table.register(RepoCell.self, forCellReuseIdentifier: RepoCell.identifier)
+        table.register(LoadingCell.self, forCellReuseIdentifier: LoadingCell.identifier)
+        return table
+    }()
+
+    let refresh: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .black
+        refresh.attributedTitle = NSAttributedString(string: "Loading...")
+        return refresh
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,19 +59,13 @@ class RepoListVC: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
-        tableView.register(RepoCell.self, forCellReuseIdentifier: RepoCell.identifier)
-        tableView.register(LoadingCell.self, forCellReuseIdentifier: LoadingCell.identifier)
 
         // Pull to Refresh
-        refresh.tintColor = .black
-        refresh.attributedTitle = NSAttributedString(string: "Loading...")
         refresh.addTarget(self, action: #selector(refreshList), for: .valueChanged)
         tableView.refreshControl = refresh
 
         // Constraints
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.setCodable()
         tableView.setTop(to: view.topAnchor)
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.setBottom(to: view.bottomAnchor)
@@ -90,6 +97,7 @@ class RepoListVC: UIViewController {
 
 extension RepoListVC: RepoListVCInput {
     func displayRepos(_ repos: [Repo], isFirstPage: Bool) {
+        refresh.isUserInteractionEnabled = true
         if isFirstPage { self.repos.removeAll() }
         self.repos.append(contentsOf: repos)
         updateList()
