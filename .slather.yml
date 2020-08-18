@@ -1,0 +1,7 @@
+xcodeproj: GitRubs.xcodeproj
+workspace: GitRubs.xcworkspace
+scheme: GitRubs
+output_directory: fastlane/slather_output
+ignore:
+  - Pods/*
+  - GitRubsTests/*

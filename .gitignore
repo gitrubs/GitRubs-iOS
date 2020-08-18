@@ -1,4 +1,10 @@
+# Xcode
 */xcuserdata/
 
-## Cocoapods
+# Fastlane
+fastlane/report.xml
+fastlane/slather_output
+fastlane/test_output
+
+# Cocoapods
 Pods/

@@ -1,10 +1,19 @@
 default_platform(:ios)
 
+app_workspace = "./GitRubs.xcworkspace"
+app_scheme = "GitRubs"
+
 platform :ios do
-  desc "Description of what the lane does"
+  desc "Execute Tests"
   lane :test do
     scan(
-      workspace 'GitRubs'
-      )
+      workspace: app_workspace,
+      scheme: app_scheme)
+    test_coverage()
+  end
+
+  desc "Gather test coverage on Slather"
+  lane :test_coverage do
+    slather(simple_output: true)
   end
 end
