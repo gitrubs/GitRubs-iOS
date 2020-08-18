@@ -97,14 +97,13 @@ class RepoListVC: UIViewController {
 
 extension RepoListVC: RepoListVCInput {
     func displayRepos(_ repos: [Repo], isFirstPage: Bool) {
-        refresh.isUserInteractionEnabled = true
         if isFirstPage { self.repos.removeAll() }
         self.repos.append(contentsOf: repos)
         updateList()
     }
 
     func displayAlert(_ alert: UIAlertController) {
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: false, completion: nil)
     }
 }
 

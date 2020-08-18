@@ -122,8 +122,4 @@ class RepoCell: UITableViewCell {
         super.init(coder: coder)
         setupUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }

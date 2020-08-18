@@ -3,11 +3,10 @@
 
 target 'GitRubs' do
   use_frameworks!
-
   pod 'Kingfisher'
 
   target 'GitRubsTests' do
-    inherit! :search_paths
     pod 'Nimble'
+    pod 'Quick'
   end
 end
