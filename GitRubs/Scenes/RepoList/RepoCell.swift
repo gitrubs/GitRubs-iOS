@@ -20,11 +20,15 @@ class RepoCell: UITableViewCell {
 
     let imgAuthor: UIImageView = {
         let img = UIImageView()
+        img.setCodable()
         img.image = UIImage(systemName: "person.crop.circle")
         img.tintColor = .black
         img.contentMode = .scaleAspectFill
-        img.setCodable()
-        img.layer.cornerRadius = 10
+        
+        // Border
+        img.layer.borderWidth = 1
+        img.layer.borderColor = UIColor.lightGray.cgColor
+        img.layer.cornerRadius = 15
         img.clipsToBounds = true
         return img
     }()
@@ -79,12 +83,12 @@ class RepoCell: UITableViewCell {
         authorView.setBottom(to: contentView.bottomAnchor, constant: 10)
         authorView.setLeading(to: contentView.leadingAnchor, constant: 10)
         authorView.setTrailing(to: lblStars.leadingAnchor, constant: 10)
-        authorView.setHeight(20)
+        authorView.setHeight(30)
         // - Picture
         imgAuthor.setTop(to: authorView.topAnchor)
         imgAuthor.setBottom(to: authorView.bottomAnchor)
         imgAuthor.setLeading(to: authorView.leadingAnchor)
-        imgAuthor.setWidth(20)
+        imgAuthor.setWidth(30)
         // - Name
         lblAuthorName.setTop(to: authorView.topAnchor)
         lblAuthorName.setBottom(to: authorView.bottomAnchor)
@@ -105,6 +109,7 @@ class RepoCell: UITableViewCell {
     func configure(repo: Repo) {
         lblRepoName.text = repo.name
         lblAuthorName.text = repo.author.name
+        imgAuthor.setImage(url: repo.author.photo)
         lblStars.text = "\(repo.stars)"
     }
 

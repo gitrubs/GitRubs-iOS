@@ -4,7 +4,7 @@
 target 'GitRubs' do
   use_frameworks!
 
-  pod 'KingFisher'
+  pod 'Kingfisher'
 
   target 'GitRubsTests' do
     inherit! :search_paths
